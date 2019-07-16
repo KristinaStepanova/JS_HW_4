@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+.table-container {
+  max-width: 1000px;
+  width: 100%;
+}
+.table {
+  border-collapse: collapse;
+  max-width: 1000px;
+  width: 100%;
+}
+.row {
+  border: 1px solid black;
+  text-align-last: left;
+}
+.total {
+  text-align: right;
+}
+#button{
+    width: 100px;
+    height: 30px;
+    background-color: steelblue;
+    border: none;
+    color: white;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.arrow-down:after{
+    content: "\ea3a";
+    font-family: 'icomoon';
+    transform: rotate(180deg);
+}
+.arrow-up:after{
+    content: "\ea3a";
+    font-family: 'icomoon';
+}
