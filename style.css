@@ -27,9 +27,8 @@
     margin-top: 15px;
 }
 .arrow-down:after{
-    content: "\ea3a";
+    content: "\ea3e";
     font-family: 'icomoon';
-    transform: rotate(180deg);
 }
 .arrow-up:after{
     content: "\ea3a";
