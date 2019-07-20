@@ -68,6 +68,7 @@ const header = {
   email: "Email",
   balance: "Balance"
 };
+
 function createTable(users, header) {
   const container = document.querySelector(".table-container");
   const fragment = document.createDocumentFragment();
@@ -108,7 +109,7 @@ function createTable(users, header) {
     "Total balance: " + users.reduce((acc, user) => (acc += user.balance), 0);
   total.classList.add("total");
   fragment.appendChild(total);
-
+  container.innerHTML = "";
   container.appendChild(fragment);
 }
 
@@ -133,12 +134,11 @@ let button = document.getElementById("button");
 
 button.addEventListener("click", function() {
   
-  if (button.classList.toggle("arrow-down")) {
-    users.sort((a, b) => a.balance - b.balance);
-  }
-
   if (button.classList.toggle("arrow-up")) {
     users.sort((a, b) => b.balance - a.balance);
+  }
+  if (button.classList.toggle("arrow-down")) {
+    users.sort((a, b) => a.balance - b.balance);
   }
 
   createTable(users, header);
