@@ -81,10 +81,7 @@ function createTable(users, header) {
 
   for (prop in header) {
     const headerCell = document.createElement("th");
-    if (prop === "sharp") {
-      prop = "#";
-    }
-    headerCell.textContent = prop.slice(0, 1).toUpperCase() + prop.slice(1);
+    headerCell.textContent = header[prop];
     headerTab.appendChild(headerCell);
   }
 
@@ -107,7 +104,8 @@ function createTable(users, header) {
   });
 
   const total = document.createElement("div");
-  total.textContent = "Total balance: " + users.reduce((acc, user) => (acc += user.balance), 0);
+  total.textContent =
+    "Total balance: " + users.reduce((acc, user) => (acc += user.balance), 0);
   total.classList.add("total");
   fragment.appendChild(total);
 
@@ -134,17 +132,13 @@ allEl.addEventListener("click", function(e) {
 let button = document.getElementById("button");
 
 button.addEventListener("click", function() {
-  if (button.className === "arrow-down") {
+  
+  if (button.classList.toggle("arrow-down")) {
     users.sort((a, b) => a.balance - b.balance);
-    button.className
-    button.classList.remove("arrow-down");
-    button.classList.add("arrow-up");
-  } else {
-    button.addEventListener("click", function() {
-      users.sort((a, b) => b.balance - a.balance);
-      button.classList.remove("arrow-up");
-      button.classList.add("arrow-down");
-    });
+  }
+
+  if (button.classList.toggle("arrow-up")) {
+    users.sort((a, b) => b.balance - a.balance);
   }
 
   createTable(users, header);
